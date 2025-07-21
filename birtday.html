@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday from Your Coding Buddy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        body {
+            font-family: 'Source Code Pro', monospace;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
+            100% { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #64ffda;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #64ffda }
+        }
+
+        .terminal-line {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .terminal-line:before {
+            content: ">";
+            position: absolute;
+            left: 0.5rem;
+            color: #64ffda;
+        }
+
+        .compile-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        .card {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+
+        .card:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        .countdown {
+            font-size: 2rem;
+            color: #ffd166;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 100px;
+            animation: float 5s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <audio id="backgroundMusic" loop>
+        <source src="https://example.com/your-birthday-song.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="max-w-4xl w-full p-6 rounded-lg">
+        <div class="text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-500">
+            <div class="typewriter">Happy Birthday, DIVYA</div>
+        </div>
+        
+        <!-- <div class="countdown" id="countdown"></div> -->
+        
+        <div class="terminal-text mb-12">
+            <div class="terminal-line mb-2">Wish you many more happy returns of the day. May god bless you lots of happiness</div>
+            <div class="terminal-line mb-2">function celebrateBirthday(friend) {</div>
+            <div class="terminal-line mb-2 pl-4">console.log(`Happy Birthday, ${friend}! 🎉`);</div>
+            <div class="terminal-line mb-2 pl-4">return "Wishing you infinite happiness!";</div>
+            <div class="terminal-line mb-2">}</div>
+            <div class="terminal-line">celebrateBirthday("Best Friend");</div>
+        </div>
+        
+        <div class="flex justify-center mb-12">
+            <div class="relative">
+                <div class="absolute inset-0 bg-green-500 rounded-lg blur opacity-75 compile-animation"></div>
+                <div class="relative bg-gray-800 p-4 rounded-lg text-center">
+                    <div class="text-xl mb-2">Compiling birthday wishes...</div>
+                    <div class="text-green-400">████████ 100%</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="card bg-gray-800 p-6 rounded-lg">
+                <div class="text-xl font-bold mb-4 text-green-400">To My Best Friend</div>
+                <div class="mb-4">
+                    <p>Just like how every program needs proper debugging...</p>
+                    <p class="mt-2">My life needs YOU to function properly!</p>
+                </div>
+                <div class="text-sm text-gray-400">2 years running successfully for years</div>
+            </div>
+            
+            <div class="card bg-gray-800 p-6 rounded-lg">
+                <div class="text-xl font-bold mb-4 text-blue-400">Memories in Binary</div>
+                <div class="mb-4">
+                    <p>From "LED blink" to complex embedded systems...</p>
+                    <p class="mt-2">From debugging laughs to a system crash of silence...
+Our signal dropped, but now the frequency feels familiar again.
+
+</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gray-800 rounded-lg p-6 mb-8">
+            <div class="text-center text-xl mb-4 text-purple-400">Birthday Wish In Packages</div>
+            <div class="terminal-line mb-2">Added: Infinite happiness package</div>
+            <div class="terminal-line mb-2">Removed: All bugs from your life</div>
+            <div class="terminal-line mb-2">Updated: Friendship bond to latest version</div>
+            <div class="terminal-line">Installed: Cake plugin 🎂</div>
+        </div>
+        
+        <div class="flex justify-center">
+            <button id="surpriseBtn" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 px-6 rounded-full hover-effect transition-transform">
+                Click for Birthday Surprise
+            </button>
+        </div>
+        
+        <div id="confetti" class="fixed inset-0 pointer-events-none overflow-hidden hidden">
+            <canvas id="confetti-canvas"></canvas>
+        </div>
+        
+        <div id="finalWish" class="hidden mt-8 p-6 bg-gray-800 rounded-lg text-center">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c9349cc4-d5be-4a02-9d70-51011f95354d.png" alt="Birthday cake with candles and coding symbols like brackets and semicolons" class="mx-auto mb-4 rounded-lg" />
+            <div class="text-2xl font-bold mb-4 text-yellow-400">Happy Birthday!</div>
+            <div class="mb-4">May your life be as bug-free as this well-written code!</div>
+            <div class="text-sm text-gray-400">Crafted with <3 by your friend </div>
+        </div>
+
+        <!-- Balloons -->
+        <img src="ballon1.png" class="balloon" style="left: 10%; top: 20%; width: 30px;">
+        <img src="ballon2.png" class="balloon" style="left: 30%; top: 10%;width: 30px;">
+        <img src="ballon1.png" class="balloon" style="left: 50%; top: 25% ;width: 30px;">
+        <img src="ballon2.png" class="balloon" style="left: 70%; top: 15% ;width: 30px;">
+        <img src="ballon1.png" class="balloon" style="left: 90%; top: 30%;width: 30px">
+    </div>
+
+    <script>
+        // Play background music
+        document.getElementById('backgroundMusic').play();
+
+        // Countdown Timer
+        const birthdayDate = new Date("2024-01-01T00:00:00"); // Set your birthday date here
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDiff = birthdayDate - now;
+
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        document.getElementById('surpriseBtn').addEventListener('click', function() {
+            // Show confetti
+            const confetti = document.getElementById('confetti');
+            confetti.classList.remove('hidden');
+            
+            // Initialize confetti canvas
+            const canvas = document.getElementById('confetti-canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const ctx = canvas.getContext('2d');
+            const pieces = [];
+            const colors = ['#64ffda', '#00bfff', '#ff6b6b', '#ffd166', '#9b59b6'];
+            
+            // Create confetti pieces
+            for (let i = 0; i < 150; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    r: Math.random() * 4 + 1,
+                    d: Math.random() * 3 + 1,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+            
+            // Animation loop
+            function loop() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                pieces.forEach((p, i) => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    
+                    p.y += p.d;
+                    
+                    // Reset pieces that fall off screen
+                    if (p.y > canvas.height) {
+                        pieces[i] = {
+                            x: Math.random() * canvas.width,
+                            y: Math.random() * canvas.height - canvas.height,
+                            r: p.r,
+                            d: p.d,
+                            color: p.color
+                        };
+                    }
+                });
+                
+                requestAnimationFrame(loop);
+            }
+            
+            loop();
+            
+            // Hide button and show final wish
+            this.classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('finalWish').classList.remove('hidden');
+            }, 2000);
+            
+            // Play birthday sound
+            const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-happy-birthday-ballons-2020.mp3');
+            audio.play();
+        });
+    </script>
+</body>
+</html>
