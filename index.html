@@ -71,8 +71,8 @@
         }
 
         .card:hover {
-            transform: rotateY(10deg) rotateX(5deg) translateZ(10px); /* Added translateZ */
-            box-shadow: 0 15px 40px rgba(100, 255, 218, 0.4); /* Enhanced shadow */
+            transform: rotateY(10deg) rotateX(5deg) translateZ(10px); 
+            box-shadow: 0 15px 40px rgba(100, 255, 218, 0.4); 
         }
 
         .countdown {
@@ -90,16 +90,16 @@
         .balloon {
             position: absolute;
             width: 100px;
-            animation: float 5s infinite ease-in-out; /* Adjusted timing function */
+            animation: float 5s infinite ease-in-out; 
         }
 
         @keyframes float {
             0% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(-20px) translateX(10px); } /* Added slight horizontal movement */
+            50% { transform: translateY(-20px) translateX(10px); } 
             100% { transform: translateY(0) translateX(0); }
         }
 
-        /* Music control button styling */
+
         #musicControl {
             position: fixed;
             top: 1rem;
@@ -220,12 +220,11 @@ Our signal dropped, but now the frequency feels familiar again.
         const backgroundMusic = document.getElementById('backgroundMusic');
         const musicControl = document.getElementById('musicControl');
         const musicIcon = document.getElementById('musicIcon');
-        let isPlaying = true; // Assume music starts playing
+        let isPlaying = true; 
 
-        // Play/Pause background music
         backgroundMusic.play().catch(error => {
             console.warn("Autoplay was prevented:", error);
-            // Show play button if autoplay fails
+    
             musicIcon.innerHTML = `<path d="M9 16V8l7 4-7 4zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>`; // Play icon
             isPlaying = false;
         });
@@ -241,62 +240,40 @@ Our signal dropped, but now the frequency feels familiar again.
             isPlaying = !isPlaying;
         });
 
-
-        // Countdown Timer - Commented out as per your original code
-        // const birthdayDate = new Date("2024-01-01T00:00:00"); // Set your birthday date here
-        // const countdownElement = document.getElementById('countdown');
-
-        // function updateCountdown() {
-        //     const now = new Date();
-        //     const timeDiff = birthdayDate - now;
-
-        //     const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        //     const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        //     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        //     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-        //     countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        // }
-
-        // setInterval(updateCountdown, 1000);
-
         document.getElementById('surpriseBtn').addEventListener('click', function() {
-            // Show confetti
+
             const confetti = document.getElementById('confetti');
             confetti.classList.remove('hidden');
             
-            // Initialize confetti canvas
             const canvas = document.getElementById('confetti-canvas');
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             
             const ctx = canvas.getContext('2d');
             const pieces = [];
-            const colors = ['#64ffda', '#00bfff', '#ff6b6b', '#ffd166', '#9b59b6']; // Added more vibrant colors
-            const shapes = ['circle', 'square', 'triangle']; // New: Different confetti shapes
+            const colors = ['#64ffda', '#00bfff', '#ff6b6b', '#ffd166', '#9b59b6']; 
+            const shapes = ['circle', 'square', 'triangle']; 
             
-            // Create confetti pieces
-            for (let i = 0; i < 200; i++) { // Increased confetti count
+            for (let i = 0; i < 200; i++) { 
                 pieces.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height - canvas.height,
-                    r: Math.random() * 5 + 2, // Larger confetti
-                    d: Math.random() * 4 + 2, // Faster fall
+                    r: Math.random() * 5 + 2, 
+                    d: Math.random() * 4 + 2, 
                     color: colors[Math.floor(Math.random() * colors.length)],
-                    shape: shapes[Math.floor(Math.random() * shapes.length)], // Assign a random shape
-                    rotation: Math.random() * Math.PI * 2, // Initial rotation
-                    rotationSpeed: Math.random() * 0.1 - 0.05 // Rotation speed
+                    shape: shapes[Math.floor(Math.random() * shapes.length)], 
+                    rotation: Math.random() * Math.PI * 2, 
+                    rotationSpeed: Math.random() * 0.1 - 0.05 
                 });
             }
             
-            // Animation loop
             function loop() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
                 pieces.forEach((p, i) => {
-                    ctx.save(); // Save current state
-                    ctx.translate(p.x, p.y); // Move origin to piece's position
-                    ctx.rotate(p.rotation); // Apply rotation
+                    ctx.save(); 
+                    ctx.translate(p.x, p.y); 
+                    ctx.rotate(p.rotation);
 
                     ctx.fillStyle = p.color;
                     
@@ -315,12 +292,11 @@ Our signal dropped, but now the frequency feels familiar again.
                         ctx.fill();
                     }
                     
-                    ctx.restore(); // Restore to previous state
+                    ctx.restore(); 
 
                     p.y += p.d;
-                    p.rotation += p.rotationSpeed; // Update rotation
-                    
-                    // Reset pieces that fall off screen
+                    p.rotation += p.rotationSpeed; 
+                
                     if (p.y > canvas.height) {
                         pieces[i] = {
                             x: Math.random() * canvas.width,
@@ -339,14 +315,13 @@ Our signal dropped, but now the frequency feels familiar again.
             }
             
             loop();
-            
-            // Hide button and show final wish
+     
             this.classList.add('hidden');
             setTimeout(() => {
                 document.getElementById('finalWish').classList.remove('hidden');
             }, 2000);
             
-            // Play birthday sound
+
             const audio = new Audio("");
             audio.play();
         });
